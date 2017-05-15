@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
         Button btnLogin = (Button) findViewById(R.id.email_sign_in_button);
-        // start the new story activity if user want to write story right now
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
