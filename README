@@ -1,1 +1,5 @@
+# Rakonto
 
+icons folders '\HCI_Rakonto\Rakonto\app\src\main\res\drawable'
+colors setting: '\HCI_Rakonto\Rakonto\app\src\main\res\values\colors.xml'
+theme setting: '\HCI_Rakonto\Rakonto\app\src\main\res\values\styles.xml'
