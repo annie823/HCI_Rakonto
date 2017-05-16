@@ -44,8 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-
         Button btnLogin = (Button) findViewById(R.id.email_sign_in_button);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
