@@ -1,6 +1,7 @@
 package com.hci.www.rakonto;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.TextSwitcher;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -43,6 +45,9 @@ public class DiscoveryFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //TODO CoverFlow item clicked
+                Toast.makeText(getActivity(),
+                        "to book " + position + " click", Toast.LENGTH_SHORT).show();
+                toBookClick(view);
             }
         });
 
@@ -58,20 +63,41 @@ public class DiscoveryFragment extends Fragment {
             }
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         return rootView;
     }
+
+
+
+
+
+
+
+    public void toBookClick(View view) {
+//      listView.setVisibility(View.GONE);
+        BookFragment newFragment = new BookFragment();
+        //Bundle args = new Bundle();
+        //args.putInt(BookshelfFragment.ARG_POSITION, position);
+        //newFragment.setArguments(args);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_discovery, newFragment);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        ft.addToBackStack(null);
+        ft.commit();
+
+        //getActivity().setContentView(R.layout.fragment_book);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
