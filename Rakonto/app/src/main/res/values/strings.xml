@@ -19,10 +19,18 @@
     </string>
     <string name="title_activity_reading">ReadingActivity</string>
 
-    <string name="title_fragment_more">Settings</string>
     <string name="menu_account">Account Settings</string>
     <string name="menu_preferences">Preferences</string>
     <string name="menu_accessibility">Accessibility Options</string>
+    <string name="menu_help">FAQs</string>
+    <string name="menu_author">Become An Author</string>
 
+    <string name="help_0a">What is Rakonto?</string>
+    <string name="help_0b">Rakonto is a discovery and reading platform for interactive fiction that supports language learning through bilingual multimedia interactive texts.</string>
+    <string name="help_1a">How does Rakonto support language learning?</string>
+    <string name="help_1b">All of our content has a base language and a target language, where the base language is the language you can read fluently and the target language is the language you are learning. Depending on the difficulty of the text, you\'ll be reading a mixture of the two languages that supports where you are at in your learning. You will get exposed to new vocabulary in context and have to make sure you understand what is going on in order to make decisions about what happens next in the story. You can save vocabulary for later to look it over, export it to your favorite flashcard app, or share it on social media.</string>
+    <string name="help_2a">How can I use Rakonto in my classroom?</string>
+    <string name="help_2b">Glad you asked! Rakonto\'s stories can be the perfect catalyst for getting students excited about language learning and exploring new cultures. Students can get practice reading, acquire new vocabulary in context, and challenge themselves to actually use their language knowledge to make decisions. You can create your own interactive fiction content or choose among existing content as part of your curriculum. With organizational accounts, you can monitor student progress and export vocabulary lists. Contact edu@rakonto.com for more information about partnering with us.</string>
+    <string name="help_3a">Not seeing your question here? Email us at help@rakonto.com</string>
 
 </resources>
