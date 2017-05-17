@@ -2,14 +2,13 @@ package com.hci.www.rakonto;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -21,6 +20,7 @@ public class BookshelfFragment extends Fragment {
     ArrayList<String> dataModels;
     ListView listView;
     private static CustomAdapter adapter;
+    View rootView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,8 +45,8 @@ public class BookshelfFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getActivity(),
-                        "to book click", Toast.LENGTH_SHORT).show();
-                //toBookClick(view);
+                        "to book " + position + " click", Toast.LENGTH_SHORT).show();
+                toBookClick(view);
             }
         });
 
@@ -54,15 +54,25 @@ public class BookshelfFragment extends Fragment {
     }
 
     public void toBookClick(View view) {
+//      listView.setVisibility(View.GONE);
         BookFragment newFragment = new BookFragment();
         //Bundle args = new Bundle();
         //args.putInt(BookshelfFragment.ARG_POSITION, position);
         //newFragment.setArguments(args);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_bookshelf, newFragment);
-        ft.remove(this);
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        ft.addToBackStack(null);
         ft.commit();
+
+        //getActivity().setContentView(R.layout.fragment_book);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        listView.setVisibility(View.VISIBLE);
     }
 
 }
