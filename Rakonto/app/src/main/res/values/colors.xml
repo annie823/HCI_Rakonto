@@ -3,7 +3,7 @@
     <color name="colorAccent">#6e6e6e</color>
 
     <color name="colorPrimary">#cbe86b</color>
-    <color name="colorPrimaryDark">#98b63b</color>
+    <color name="colorPrimaryDark">#4d5c1d</color>
     <color name="colorPrimaryLight">#ffff9c</color>
     <color name="colorPrimaryText">#000000</color>
 
@@ -11,6 +11,6 @@
     <color name="colorSecondaryDark">#0088ae</color>
     <color name="colorSecondaryLight">#82eaff</color>
     <color name="colorSecondaryText">#ffffff</color>
-    <color name="colorAltSecondaryText">#757575</color>
+    <color name="colorAltSecondaryText">#213e4b</color>
 
 </resources>
