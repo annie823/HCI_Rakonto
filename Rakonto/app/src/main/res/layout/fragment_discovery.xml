@@ -15,4 +15,9 @@
     android:text="Hello Discovery Fragment!"
     android:id="@+id/textView" />
 
+    <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
+        android:id="@+id/coverflow"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
 </LinearLayout>
