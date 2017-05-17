@@ -9,10 +9,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/menu"
+        style="@style/Widget.AppCompat.ListView.Menu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello More Fragment!"
-        android:id="@+id/textView" />
+        android:divider="@android:drawable/divider_horizontal_textfield" />
 
 </LinearLayout>
