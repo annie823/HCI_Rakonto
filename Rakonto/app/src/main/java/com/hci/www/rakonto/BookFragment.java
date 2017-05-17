@@ -57,7 +57,7 @@ public class BookFragment extends Fragment {
         super.onResume();
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         ActionBar actionBar = activity.getSupportActionBar();
-        actionBar.setTitle("Book Detail Page");
+        //actionBar.setTitle("Book Detail Page");
     }
 
 
