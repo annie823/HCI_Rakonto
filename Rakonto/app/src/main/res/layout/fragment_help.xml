@@ -1,8 +1,9 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragment_help"
+    android:background="?android:windowBackground"
     tools:context="com.hci.www.rakonto.HelpFragment">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -69,4 +70,4 @@
 
     </LinearLayout>
 
-</FrameLayout>
+</ScrollView >
