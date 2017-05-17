@@ -1,0 +1,26 @@
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_accessibility"
+    android:background="?android:windowBackground"
+    tools:context="com.hci.www.rakonto.AccessibilityFragment">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/accessibility"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+
+    </LinearLayout>
+
+</ScrollView >
+

@@ -51,13 +51,23 @@ public class MoreFragment extends Fragment {
         boolean toTransition = false;
         switch (s) {
             case ("Account Settings"):
+                ft.replace(R.id.fragment_more, new AccountFragment());
+                toTransition = true;
                 break;
             case ("Preferences"):
+                ft.replace(R.id.fragment_more, new PreferencesFragment());
+                toTransition = true;
                 break;
             case ("Accessibility Options"):
+                ft.replace(R.id.fragment_more, new AccessibilityFragment());
+                toTransition = true;
                 break;
             case ("FAQs"):
                 ft.replace(R.id.fragment_more, new HelpFragment());
+                toTransition = true;
+                break;
+            case ("Become An Author"):
+                ft.replace(R.id.fragment_more, new AuthorFragment());
                 toTransition = true;
                 break;
         }
