@@ -48,8 +48,7 @@ public class CoverFlowAdapter extends BaseAdapter {
 
             ViewHolder viewHolder = new ViewHolder();
             viewHolder.text = (TextView) rowView.findViewById(R.id.label);
-            viewHolder.image = (ImageView) rowView
-                    .findViewById(R.id.image);
+            viewHolder.image = (ImageView) rowView.findViewById(R.id.image);
             rowView.setTag(viewHolder);
         }
 
