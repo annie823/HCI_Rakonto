@@ -18,4 +18,11 @@
         completions."
     </string>
     <string name="title_activity_reading">ReadingActivity</string>
+
+    <string name="title_fragment_more">Settings</string>
+    <string name="menu_account">Account Settings</string>
+    <string name="menu_preferences">Preferences</string>
+    <string name="menu_accessibility">Accessibility Options</string>
+
+
 </resources>

@@ -11,5 +11,6 @@
     <color name="colorSecondaryDark">#0088ae</color>
     <color name="colorSecondaryLight">#82eaff</color>
     <color name="colorSecondaryText">#ffffff</color>
+    <color name="colorAltSecondaryText">#757575</color>
 
 </resources>
