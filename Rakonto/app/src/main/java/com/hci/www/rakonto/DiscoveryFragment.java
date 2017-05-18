@@ -113,9 +113,8 @@ public class DiscoveryFragment extends Fragment {
             mCoverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    //TODO CoverFlow item clicked
-                    Toast.makeText(getActivity(),
-                            "to book " + position + " click", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(),
+//                            "to book " + position + " click", Toast.LENGTH_SHORT).show();
                     toBookClick(view);
                 }
             });
@@ -125,26 +124,36 @@ public class DiscoveryFragment extends Fragment {
 
         // genres
         ImageButton ib = (ImageButton) rootView.findViewById(R.id.genre_0);
-        ib.setOnClickListener(NewGenreClickListener(0));
+        ib.setOnClickListener(NewGenreClickListener(0, this));
         ib = (ImageButton) rootView.findViewById(R.id.genre_1);
-        ib.setOnClickListener(NewGenreClickListener(1));
+        ib.setOnClickListener(NewGenreClickListener(1, this));
         ib = (ImageButton) rootView.findViewById(R.id.genre_2);
-        ib.setOnClickListener(NewGenreClickListener(2));
+        ib.setOnClickListener(NewGenreClickListener(2, this));
         ib = (ImageButton) rootView.findViewById(R.id.genre_3);
-        ib.setOnClickListener(NewGenreClickListener(3));
+        ib.setOnClickListener(NewGenreClickListener(3, this));
         ib = (ImageButton) rootView.findViewById(R.id.genre_4);
-        ib.setOnClickListener(NewGenreClickListener(4));
+        ib.setOnClickListener(NewGenreClickListener(4, this));
 
         return rootView;
     }
 
-    public View.OnClickListener NewGenreClickListener(final int index) {
+
+
+    public View.OnClickListener NewGenreClickListener(final int index, final DiscoveryFragment df) {
         return new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO go to genre discovery
                 Toast.makeText(getActivity(), GENRES[index], Toast.LENGTH_SHORT).show();
+                GenreFragment newFragment = new GenreFragment();
+                newFragment.languages = df.languages;
+                newFragment.genre = GENRES[index];
+                newFragment.mMenu = df.mMenu;
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment_discovery, newFragment);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.addToBackStack(null);
+                ft.commit();
 
             }
         };

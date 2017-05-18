@@ -1,13 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:coverflow="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_genre"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hci.www.rakonto.GenreFragment">
+    android:background="@color/colorSecondaryText"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/discover_featured"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
+                android:id="@+id/coverflow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                coverflow:maxScaleFactor="1.5"
+                coverflow:reflectionGap="1px"
+                coverflow:rotationThreshold="0.5"
+                coverflow:scalingThreshold="0.5"
+                coverflow:spacing="0.6"/>
+
+            <TextView
+                android:id="@+id/featured_title"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorAltSecondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/featured_author"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/featured_language"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:paddingBottom="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/discover_new_bestsellers"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
+                android:id="@+id/coverflow_bestseller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                coverflow:maxScaleFactor="1.5"
+                coverflow:reflectionGap="1px"
+                coverflow:rotationThreshold="0.5"
+                coverflow:scalingThreshold="0.5"
+                coverflow:spacing="0.6"/>
+
+            <TextView
+                android:id="@+id/bestseller_title"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorAltSecondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/bestseller_author"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/bestseller_language"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:paddingBottom="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/discover_you"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
+                android:id="@+id/coverflow_you"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                coverflow:maxScaleFactor="1.5"
+                coverflow:reflectionGap="1px"
+                coverflow:rotationThreshold="0.5"
+                coverflow:scalingThreshold="0.5"
+                coverflow:spacing="0.6"/>
+
+            <TextView
+                android:id="@+id/you_title"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorAltSecondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/you_author"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/you_language"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:paddingBottom="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </FrameLayout>
