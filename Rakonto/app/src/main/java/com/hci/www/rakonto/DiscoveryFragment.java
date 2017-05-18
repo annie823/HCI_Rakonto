@@ -3,6 +3,8 @@ package com.hci.www.rakonto;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -89,8 +91,6 @@ public class DiscoveryFragment extends Fragment {
         //Toast.makeText(getActivity(), "language: " + lang, Toast.LENGTH_SHORT).show();
         return super.onOptionsItemSelected(item);
     }
-
-
 
     public void toBookClick(View view) {
 //      listView.setVisibility(View.GONE);

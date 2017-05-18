@@ -54,6 +54,29 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tab);
         tabLayout.setupWithViewPager(viewPager);
 
+        String[] actionBarTitle = {"Discovery", "Vocabulary", "Bookshelf", "Search", "Rakonto"};
+        int i = viewPager.getCurrentItem();
+        getSupportActionBar().setTitle(actionBarTitle[i]);
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageSelected(int pos) {
+                String[] actionBarTitle = {"Discovery", "Vocabulary", "Bookshelf", "Search", "Rakonto"};
+                getSupportActionBar().setTitle(actionBarTitle[pos]);
+            }
+
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int arg0) {
+
+            }
+        });
+
+
     }
 
 
