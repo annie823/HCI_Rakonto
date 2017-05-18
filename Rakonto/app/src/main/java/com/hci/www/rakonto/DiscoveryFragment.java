@@ -40,13 +40,13 @@ public class DiscoveryFragment extends Fragment {
     public TextView[] t_titles;
     public TextView[] t_languages;
     public TextView[] t_authors;
+    public static String[] new_targets = {"Beginner ", "Intermediate ", "Advanced ", "Beginner "};
+    public static String[] all_lang = {"Beginner Russian", "Intermediate French", "Advanced Hebrew", "Beginner Korean"};
 
     private FeatureCoverFlow mCoverFlow;
     private CoverFlowAdapter mAdapter;
     private ArrayList<String> mData;
-    private TextView mTitle;
-    private TextView mAuthor;
-    private TextView mLanguage;
+
     Menu mMenu;
 
     @Override
@@ -54,7 +54,7 @@ public class DiscoveryFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_discovery, container, false);
 
-        languages = new String[] {"Beginner Russian", "Intermediate French", "Advanced Hebrew", "Beginner Korean"};
+        languages = all_lang.clone();
 
         int[] coverflow_ids = new int[] {R.id.coverflow, R.id.coverflow_bestseller, R.id.coverflow_you};
         t_titles = new TextView[] {
@@ -133,7 +133,20 @@ public class DiscoveryFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         String lang = item.getTitle().toString();
         mMenu.findItem(R.id.menu_settings).setTitle(lang);
-        //Toast.makeText(getActivity(), "language: " + lang, Toast.LENGTH_SHORT).show();
+        if (!lang.contains("Language")) {
+//            Toast.makeText(getActivity(), lang, Toast.LENGTH_SHORT).show();
+            for (int i = 0; i < languages.length; i++) {
+                languages[i] = new_targets[i] + lang;
+            }
+        } else {
+//            Toast.makeText(getActivity(), "All languages are life", Toast.LENGTH_SHORT).show();
+            for (int i = 0; i < languages.length; i++) {
+                languages[i] = all_lang[i];
+            }
+        }
+        for (int i = 0; i < t_languages.length; i++) {
+            t_languages[i].setText(languages[0]);
+        }
         return super.onOptionsItemSelected(item);
     }
 
