@@ -44,6 +44,14 @@
                 android:textStyle="bold|italic"
                 android:id="@+id/author" />
 
+            <ImageView
+                android:src="@drawable/chinese_simplified_medium"
+                android:background="@color/colorPrimaryLight"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
         </LinearLayout>
 
     </LinearLayout>
