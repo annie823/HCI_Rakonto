@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CoverFlowAdapter extends BaseAdapter {
 
@@ -54,7 +55,35 @@ public class CoverFlowAdapter extends BaseAdapter {
 
         ViewHolder holder = (ViewHolder) rowView.getTag();
 
-        holder.image.setImageResource(R.drawable.book);
+        holder.image.setImageResource(R.drawable.bookcover2);
+
+
+        Random r = new Random();
+        int rand = r.nextInt(4);
+        switch (rand) {
+            case 0:
+                holder.image.setImageResource(R.drawable.bookcover1);
+                break;
+            case 1:
+                holder.image.setImageResource(R.drawable.bookcover2);
+                break;
+            case 2:
+                holder.image.setImageResource(R.drawable.bookcover3);
+                break;
+            case 3:
+                holder.image.setImageResource(R.drawable.bookcover4);
+                break;
+            case 4:
+                holder.image.setImageResource(R.drawable.bookcover5);
+                break;
+            default:
+                holder.image.setImageResource(R.drawable.bookcover1);
+                break;
+        }
+
+
+
+
         holder.text.setText("Book " + position);
 
         return rowView;
