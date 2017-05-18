@@ -7,6 +7,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -74,7 +76,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        tabLayout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                onTabClick();
+            }
+        });
 
+    }
+
+    private void onTabClick() {
+        Toast.makeText(getApplicationContext(), "click", Toast.LENGTH_SHORT).show();
     }
 
 
