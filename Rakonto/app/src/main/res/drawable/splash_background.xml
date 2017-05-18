@@ -2,12 +2,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:drawable="@color/colorSecondaryDark"/>
+        android:drawable="@color/colorSecondary"/>
 
-    <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/icon"/>
-    </item>
+    <item
+        android:drawable="@drawable/splash_screen_rokonto"/>
 
 </layer-list>

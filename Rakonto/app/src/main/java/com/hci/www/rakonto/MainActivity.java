@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private BookshelfFragment bookshelfFragment;
     private SearchFragment searchFragment;
     private MoreFragment moreFragment;
-
+    private String[] actionBarTitle = {"Discovery", "Vocabulary", "Bookshelf", "Search", "Rakonto"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +54,12 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tab);
         tabLayout.setupWithViewPager(viewPager);
 
-        String[] actionBarTitle = {"Discovery", "Vocabulary", "Bookshelf", "Search", "Rakonto"};
         int i = viewPager.getCurrentItem();
         getSupportActionBar().setTitle(actionBarTitle[i]);
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int pos) {
-                String[] actionBarTitle = {"Discovery", "Vocabulary", "Bookshelf", "Search", "Rakonto"};
                 getSupportActionBar().setTitle(actionBarTitle[pos]);
             }
 

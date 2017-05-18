@@ -13,6 +13,7 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SystemClock.sleep(TimeUnit.SECONDS.toMillis(1));
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
