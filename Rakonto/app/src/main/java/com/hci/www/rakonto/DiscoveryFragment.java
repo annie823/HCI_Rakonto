@@ -9,12 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.HorizontalScrollView;
 import android.widget.Toast;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 import java.util.ArrayList;
+import android.widget.ImageButton;
 
 import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
 
@@ -33,6 +36,14 @@ public class DiscoveryFragment extends Fragment {
             "Nina Nani",
             "Francis Francisco",
             "Sigmund Sigward"
+    };
+
+    private static String[] GENRES = {
+            "Science Fiction",
+            "Romance",
+            "Drama",
+            "Mystery",
+            "Travel"
     };
 
     private String[] languages;
@@ -110,10 +121,33 @@ public class DiscoveryFragment extends Fragment {
             });
 
             mCoverFlow.setOnScrollPositionListener(NewScrollListener(i));
-
         }
 
+        // genres
+        ImageButton ib = (ImageButton) rootView.findViewById(R.id.genre_0);
+        ib.setOnClickListener(NewGenreClickListener(0));
+        ib = (ImageButton) rootView.findViewById(R.id.genre_1);
+        ib.setOnClickListener(NewGenreClickListener(1));
+        ib = (ImageButton) rootView.findViewById(R.id.genre_2);
+        ib.setOnClickListener(NewGenreClickListener(2));
+        ib = (ImageButton) rootView.findViewById(R.id.genre_3);
+        ib.setOnClickListener(NewGenreClickListener(3));
+        ib = (ImageButton) rootView.findViewById(R.id.genre_4);
+        ib.setOnClickListener(NewGenreClickListener(4));
+
         return rootView;
+    }
+
+    public View.OnClickListener NewGenreClickListener(final int index) {
+        return new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO go to genre discovery
+                Toast.makeText(getActivity(), GENRES[index], Toast.LENGTH_SHORT).show();
+
+            }
+        };
     }
 
     @Override
