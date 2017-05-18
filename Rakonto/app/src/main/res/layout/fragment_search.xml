@@ -8,18 +8,14 @@
     android:background="@drawable/search_background"
     android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/search_bar"
-        android:padding="10dp"
+    <SearchView
+        android:background="@color/colorSecondaryLight"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:hint="@android:string/search_go"
-        android:inputType="textAutoCorrect|textAutoComplete"
-        android:maxLines="1"
-        android:selectAllOnFocus="false"
-        android:textColor="@color/colorAltSecondaryText"
-        android:singleLine="true"
+        android:id="@+id/search_bar"
         android:windowSoftInputMode="adjustPan"
-/>
+        android:inputType="textAutoCorrect|textAutoComplete"
+        android:layout_height="wrap_content"></SearchView>
+
 
 </LinearLayout>

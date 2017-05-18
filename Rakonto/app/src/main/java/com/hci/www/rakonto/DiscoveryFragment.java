@@ -40,10 +40,10 @@ public class DiscoveryFragment extends Fragment {
 
     private static String[] GENRES = {
             "Science Fiction",
-            "Romance",
-            "Drama",
-            "Mystery",
-            "Travel"
+            "Thrillers",
+            "Historical Fiction",
+            "Horror & Mystery",
+            "Nature & Animals"
     };
 
     private String[] languages;
