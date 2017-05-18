@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan">  </activity>
         <activity android:name=".ReadActivity" />
         <activity android:name=".BookActivity" />
         <activity android:name=".VocabularyActivity"></activity>
