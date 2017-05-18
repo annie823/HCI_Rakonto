@@ -12,15 +12,18 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello Discovery Fragment!"
-            android:id="@+id/textView" />
+            android:text="@string/discover_featured"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
             android:id="@+id/coverflow"
@@ -31,7 +34,60 @@
             coverflow:rotationThreshold="0.5"
             coverflow:scalingThreshold="0.5"
             coverflow:spacing="0.6"/>
+
+            <TextView
+                android:id="@+id/featured_title"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorAltSecondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/featured_author"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/featured_language"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:paddingBottom="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/discover_new_bestsellers"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/discover_genre"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/discover_you"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
         </LinearLayout>
+
     </ScrollView>
 
 
