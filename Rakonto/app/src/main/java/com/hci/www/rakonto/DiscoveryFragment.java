@@ -37,9 +37,13 @@ public class DiscoveryFragment extends Fragment {
 
     private String[] languages;
 
+    public TextView[] t_titles;
+    public TextView[] t_languages;
+    public TextView[] t_authors;
+
     private FeatureCoverFlow mCoverFlow;
     private CoverFlowAdapter mAdapter;
-    private ArrayList<String> mData = new ArrayList<>();
+    private ArrayList<String> mData;
     private TextView mTitle;
     private TextView mAuthor;
     private TextView mLanguage;
@@ -50,51 +54,64 @@ public class DiscoveryFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_discovery, container, false);
 
-        mData.add("book 1");
-        mData.add("book 2");
-        mData.add("book 3");
-        mData.add("book 4");
-
-        mAdapter = new CoverFlowAdapter(getActivity().getApplicationContext());
-        mAdapter.setData(mData);
-        mCoverFlow = (FeatureCoverFlow) rootView.findViewById(R.id.coverflow);
-        mCoverFlow.setAdapter(mAdapter);
-
-        mCoverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //TODO CoverFlow item clicked
-                Toast.makeText(getActivity(),
-                        "to book " + position + " click", Toast.LENGTH_SHORT).show();
-                toBookClick(view);
-            }
-        });
-
-        // https://github.com/moondroid/CoverFlow README suggestions not working...things aren't getting logged
-        mCoverFlow.setOnScrollPositionListener(new FeatureCoverFlow.OnScrollPositionListener() {
-            @Override
-            public void onScrolling() {
-                mTitle.setText("...");
-                mAuthor.setText("");
-                mLanguage.setText("");
-            }
-            @Override
-            public void onScrolledToPosition(int position) {
-                mTitle.setText(BOOK_TITLES[position]);
-                mAuthor.setText(AUTHORS[position]);
-                mLanguage.setText(languages[position]);
-            }});
-
-
-        mTitle = (TextView) rootView.findViewById(R.id.featured_title);
-        mTitle.setText(BOOK_TITLES[0]);
-
-        mAuthor = (TextView) rootView.findViewById(R.id.featured_author);
-        mAuthor.setText(AUTHORS[0]);
-
-        mLanguage = (TextView) rootView.findViewById(R.id.featured_language);
         languages = new String[] {"Beginner Russian", "Intermediate French", "Advanced Hebrew", "Beginner Korean"};
-        mLanguage.setText(languages[0]);
+
+        int[] coverflow_ids = new int[] {R.id.coverflow, R.id.coverflow_bestseller, R.id.coverflow_you};
+        t_titles = new TextView[] {
+                (TextView) rootView.findViewById(R.id.featured_title),
+                (TextView) rootView.findViewById(R.id.bestseller_title),
+                (TextView) rootView.findViewById(R.id.you_title),
+        };
+
+        t_authors = new TextView[] {
+                (TextView) rootView.findViewById(R.id.featured_author),
+                (TextView) rootView.findViewById(R.id.bestseller_author),
+                (TextView) rootView.findViewById(R.id.you_author),
+        };
+
+        t_languages = new TextView[] {
+                (TextView) rootView.findViewById(R.id.featured_language),
+                (TextView) rootView.findViewById(R.id.bestseller_language),
+                (TextView) rootView.findViewById(R.id.you_language),
+        };
+
+
+        for (TextView t : t_titles) {
+            t.setText(BOOK_TITLES[0]);
+        }
+        for (TextView t : t_authors) {
+            t.setText(AUTHORS[0]);
+        }
+        for (TextView t : t_languages) {
+            t.setText(languages[0]);
+        }
+
+        for (int i = 0; i < 3; i++) {
+
+            mData = new ArrayList<>();
+            mData.add("book 1");
+            mData.add("book 2");
+            mData.add("book 3");
+            mData.add("book 4");
+
+            mAdapter = new CoverFlowAdapter(getActivity().getApplicationContext());
+            mAdapter.setData(mData);
+            mCoverFlow = (FeatureCoverFlow) rootView.findViewById(coverflow_ids[i]);
+            mCoverFlow.setAdapter(mAdapter);
+
+            mCoverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    //TODO CoverFlow item clicked
+                    Toast.makeText(getActivity(),
+                            "to book " + position + " click", Toast.LENGTH_SHORT).show();
+                    toBookClick(view);
+                }
+            });
+
+            mCoverFlow.setOnScrollPositionListener(NewScrollListener(i));
+
+        }
 
         return rootView;
     }
@@ -118,6 +135,23 @@ public class DiscoveryFragment extends Fragment {
         mMenu.findItem(R.id.menu_settings).setTitle(lang);
         //Toast.makeText(getActivity(), "language: " + lang, Toast.LENGTH_SHORT).show();
         return super.onOptionsItemSelected(item);
+    }
+
+    protected FeatureCoverFlow.OnScrollPositionListener NewScrollListener (final int index) {
+        return new FeatureCoverFlow.OnScrollPositionListener() {
+
+            @Override
+            public void onScrolling() {
+                t_titles[index].setText("...");
+                t_authors[index].setText("");
+                t_languages[index].setText("");
+            }
+            @Override
+            public void onScrolledToPosition(int position) {
+                t_titles[index].setText(BOOK_TITLES[position]);
+                t_authors[index].setText(AUTHORS[position]);
+                t_languages[index].setText(languages[position]);
+            }};
     }
 
     public void toBookClick(View view) {

@@ -78,12 +78,96 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="24sp"
+                ></HorizontalScrollView>
+
+            <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
+                android:id="@+id/coverflow_bestseller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                coverflow:maxScaleFactor="1.5"
+                coverflow:reflectionGap="1px"
+                coverflow:rotationThreshold="0.5"
+                coverflow:scalingThreshold="0.5"
+                coverflow:spacing="0.6"/>
+
+            <TextView
+                android:id="@+id/bestseller_title"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorAltSecondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/bestseller_author"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/bestseller_language"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:paddingBottom="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/discover_you"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+
+            <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
+                android:id="@+id/coverflow_you"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                coverflow:maxScaleFactor="1.5"
+                coverflow:reflectionGap="1px"
+                coverflow:rotationThreshold="0.5"
+                coverflow:scalingThreshold="0.5"
+                coverflow:spacing="0.6"/>
+
+            <TextView
+                android:id="@+id/you_title"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorAltSecondaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/you_author"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/you_language"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent"
+                android:paddingBottom="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TextView>
 
 
         </LinearLayout>
