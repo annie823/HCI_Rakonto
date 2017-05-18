@@ -197,14 +197,11 @@ public class GenreFragment extends Fragment {
 
     }
 
-
-
-
-
-
-
-
-
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle("Discovery");
+    }
 
 
 

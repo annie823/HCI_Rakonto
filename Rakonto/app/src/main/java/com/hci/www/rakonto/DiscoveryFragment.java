@@ -173,6 +173,12 @@ public class DiscoveryFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         String lang = item.getTitle().toString();
         mMenu.findItem(R.id.menu_settings).setTitle(lang);
