@@ -5,13 +5,17 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -27,13 +31,21 @@ public class BookFragment extends Fragment implements  ViewPager.OnPageChangeLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_book, container, false);
 
-//        Button btnToRead = (Button) rootView.findViewById(R.id.toRead);
-//        btnToRead.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                toReadClick();
-//            }
-//        });
+        Button btnToRead = (Button) rootView.findViewById(R.id.toRead);
+        btnToRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toReadClick();
+            }
+        });
+
+        Button btnDownload = (Button) rootView.findViewById(R.id.toDownload);
+        btnDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toDownloadClick();
+            }
+        });
 
         FragmentManager fm = getFragmentManager();
         fm.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
@@ -64,8 +76,11 @@ public class BookFragment extends Fragment implements  ViewPager.OnPageChangeLis
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        menu.clear();
     }
 
     public void toReadClick() {
@@ -73,6 +88,12 @@ public class BookFragment extends Fragment implements  ViewPager.OnPageChangeLis
         intent = new Intent(getActivity().getApplicationContext(), ReadActivity.class);
         startActivity(intent);
     }
+
+    public void toDownloadClick(){
+        Toast.makeText(getActivity(),
+                "Downloading" , Toast.LENGTH_SHORT).show();
+    }
+
 
 
     @Override

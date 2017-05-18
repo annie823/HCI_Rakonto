@@ -22,7 +22,7 @@ import android.widget.ImageButton;
 import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
 
 
-public class DiscoveryFragment extends Fragment {
+public class GenreFragment extends Fragment {
 
     private static String[] BOOK_TITLES = {
             "The Greatest Book Ever",
@@ -46,7 +46,9 @@ public class DiscoveryFragment extends Fragment {
             "Travel"
     };
 
-    private String[] languages;
+    public String[] languages;
+
+    Menu mMenu;
 
     public TextView[] t_titles;
     public TextView[] t_languages;
@@ -58,14 +60,19 @@ public class DiscoveryFragment extends Fragment {
     private CoverFlowAdapter mAdapter;
     private ArrayList<String> mData;
 
-    Menu mMenu;
+    public String genre = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_discovery, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_genre, container, false);
 
-        languages = all_lang.clone();
+        if (languages == null) {
+            languages = all_lang.clone();
+        }
+        if (!genre.isEmpty()) {
+            ((MainActivity) getActivity()).getSupportActionBar().setTitle(genre);
+        }
 
         int[] coverflow_ids = new int[] {R.id.coverflow, R.id.coverflow_bestseller, R.id.coverflow_you};
         t_titles = new TextView[] {
@@ -113,8 +120,6 @@ public class DiscoveryFragment extends Fragment {
             mCoverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    Toast.makeText(getActivity(),
-//                            "to book " + position + " click", Toast.LENGTH_SHORT).show();
                     toBookClick(view);
                 }
             });
@@ -122,41 +127,7 @@ public class DiscoveryFragment extends Fragment {
             mCoverFlow.setOnScrollPositionListener(NewScrollListener(i));
         }
 
-        // genres
-        ImageButton ib = (ImageButton) rootView.findViewById(R.id.genre_0);
-        ib.setOnClickListener(NewGenreClickListener(0, this));
-        ib = (ImageButton) rootView.findViewById(R.id.genre_1);
-        ib.setOnClickListener(NewGenreClickListener(1, this));
-        ib = (ImageButton) rootView.findViewById(R.id.genre_2);
-        ib.setOnClickListener(NewGenreClickListener(2, this));
-        ib = (ImageButton) rootView.findViewById(R.id.genre_3);
-        ib.setOnClickListener(NewGenreClickListener(3, this));
-        ib = (ImageButton) rootView.findViewById(R.id.genre_4);
-        ib.setOnClickListener(NewGenreClickListener(4, this));
-
         return rootView;
-    }
-
-
-
-    public View.OnClickListener NewGenreClickListener(final int index, final DiscoveryFragment df) {
-        return new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), GENRES[index], Toast.LENGTH_SHORT).show();
-                GenreFragment newFragment = new GenreFragment();
-                newFragment.languages = df.languages;
-                newFragment.genre = GENRES[index];
-                newFragment.mMenu = df.mMenu;
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fragment_discovery, newFragment);
-                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                ft.addToBackStack(null);
-                ft.commit();
-
-            }
-        };
     }
 
     @Override
@@ -165,18 +136,12 @@ public class DiscoveryFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        mMenu = menu;
-        getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        super.onCreateOptionsMenu(menu, inflater);
+//        mMenu = menu;
+//        getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -223,7 +188,7 @@ public class DiscoveryFragment extends Fragment {
         //args.putInt(BookshelfFragment.ARG_POSITION, position);
         //newFragment.setArguments(args);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_discovery, newFragment);
+        ft.replace(R.id.fragment_genre, newFragment);
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         ft.addToBackStack(null);
         ft.commit();
@@ -232,14 +197,11 @@ public class DiscoveryFragment extends Fragment {
 
     }
 
-
-
-
-
-
-
-
-
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle("Discovery");
+    }
 
 
 

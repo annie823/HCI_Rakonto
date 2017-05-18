@@ -7,6 +7,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private BookshelfFragment bookshelfFragment;
     private SearchFragment searchFragment;
     private MoreFragment moreFragment;
-
+    private String[] actionBarTitle = {"Discovery", "Vocabulary", "Bookshelf", "Search", "Rakonto"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,36 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tab);
         tabLayout.setupWithViewPager(viewPager);
 
+        int i = viewPager.getCurrentItem();
+        getSupportActionBar().setTitle(actionBarTitle[i]);
+
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageSelected(int pos) {
+                getSupportActionBar().setTitle(actionBarTitle[pos]);
+            }
+
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int arg0) {
+
+            }
+        });
+
+        tabLayout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                onTabClick();
+            }
+        });
+
+    }
+
+    private void onTabClick() {
+        Toast.makeText(getApplicationContext(), "click", Toast.LENGTH_SHORT).show();
     }
 
 
