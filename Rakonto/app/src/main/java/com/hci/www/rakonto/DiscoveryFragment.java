@@ -4,6 +4,9 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -23,7 +26,7 @@ public class DiscoveryFragment extends Fragment {
     private ArrayList<String> mData = new ArrayList<>();
     private TextSwitcher mTitle;
 
-
+    Menu mMenu;
 
 
     @Override
@@ -66,9 +69,26 @@ public class DiscoveryFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        mMenu = menu;
+        getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
+    }
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        String lang = item.getTitle().toString();
+        mMenu.findItem(R.id.menu_settings).setTitle(lang);
+        //Toast.makeText(getActivity(), "language: " + lang, Toast.LENGTH_SHORT).show();
+        return super.onOptionsItemSelected(item);
+    }
 
 
 
