@@ -38,4 +38,10 @@
     <string name="account">This prototype doesn\'t have accounts, so there is nothing for you to do here. However, you\'d be able to log in/out, change child-safety settings, etc. Note that child safety can be modified either in account or preferences screens, although password will be required to turn off safety features.</string>
     <string name="preferences">This prototype isn\'t fancy enough to let you customize things, but here you would be able to change child safety, base language, language preferences (difficulty levels, favorite languages, etc.), automatic bookmarking, and otherwise customize your user experience.</string>
 
+    <string name="discover_featured">Featured</string>
+    <string name="discover_new_bestsellers">New from Bestselling Authors</string>
+    <string name="discover_you">Recommended for You</string>
+    <string name="discover_genre">Popular Genres</string>
+
+
 </resources>

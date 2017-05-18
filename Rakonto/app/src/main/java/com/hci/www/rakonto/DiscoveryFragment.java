@@ -6,16 +6,14 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.TextSwitcher;
 import android.widget.Toast;
-
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.TextView;
 import java.util.ArrayList;
 
 import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
@@ -23,13 +21,29 @@ import it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow;
 
 public class DiscoveryFragment extends Fragment {
 
+    private static String[] BOOK_TITLES = {
+            "The Greatest Book Ever",
+            "Secrets In The Night",
+            "Moon Made of Cheese",
+            "The Fuzzy Bunny"
+    };
+
+    private static String[] AUTHORS = {
+            "Simon Simon",
+            "Nina Nani",
+            "Francis Francisco",
+            "Sigmund Sigward"
+    };
+
+    private String[] languages;
+
     private FeatureCoverFlow mCoverFlow;
     private CoverFlowAdapter mAdapter;
     private ArrayList<String> mData = new ArrayList<>();
-    private TextSwitcher mTitle;
-
+    private TextView mTitle;
+    private TextView mAuthor;
+    private TextView mLanguage;
     Menu mMenu;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,7 +57,7 @@ public class DiscoveryFragment extends Fragment {
 
         mAdapter = new CoverFlowAdapter(getActivity().getApplicationContext());
         mAdapter.setData(mData);
-        FeatureCoverFlow mCoverFlow = (FeatureCoverFlow) rootView.findViewById(R.id.coverflow);
+        mCoverFlow = (FeatureCoverFlow) rootView.findViewById(R.id.coverflow);
         mCoverFlow.setAdapter(mAdapter);
 
         mCoverFlow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -56,17 +70,31 @@ public class DiscoveryFragment extends Fragment {
             }
         });
 
+        // https://github.com/moondroid/CoverFlow README suggestions not working...things aren't getting logged
         mCoverFlow.setOnScrollPositionListener(new FeatureCoverFlow.OnScrollPositionListener() {
             @Override
-            public void onScrolledToPosition(int position) {
-                //TODO CoverFlow stopped to position
-            }
-
-            @Override
             public void onScrolling() {
-                //TODO CoverFlow began scrolling
+                mTitle.setText("...");
+                mAuthor.setText("");
+                mLanguage.setText("");
             }
-        });
+            @Override
+            public void onScrolledToPosition(int position) {
+                mTitle.setText(BOOK_TITLES[position]);
+                mAuthor.setText(AUTHORS[position]);
+                mLanguage.setText(languages[position]);
+            }});
+
+
+        mTitle = (TextView) rootView.findViewById(R.id.featured_title);
+        mTitle.setText(BOOK_TITLES[0]);
+
+        mAuthor = (TextView) rootView.findViewById(R.id.featured_author);
+        mAuthor.setText(AUTHORS[0]);
+
+        mLanguage = (TextView) rootView.findViewById(R.id.featured_language);
+        languages = new String[] {"Beginner Russian", "Intermediate French", "Advanced Hebrew", "Beginner Korean"};
+        mLanguage.setText(languages[0]);
 
         return rootView;
     }
