@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class VocabularyFragment extends Fragment implements ListView.OnItemClickListener{
@@ -22,7 +23,7 @@ public class VocabularyFragment extends Fragment implements ListView.OnItemClick
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        currentRecord = GetlistVocab();
+
 
     }
     @Override
@@ -30,8 +31,10 @@ public class VocabularyFragment extends Fragment implements ListView.OnItemClick
 
 
         View v = inflater.inflate(R.layout.fragment_vocabulary, container, false);
+        currentRecord = GetlistVocab();
         vocabAdapter = new ListviewVocabAdapter(getActivity(), currentRecord);
         ListView listView = (ListView) v.findViewById(R.id.vocab_list);
+
         listView.setAdapter(vocabAdapter);
         listView.setOnItemClickListener(this);
         return v;
@@ -62,20 +65,26 @@ public class VocabularyFragment extends Fragment implements ListView.OnItemClick
 
         ListviewVocab voca1 = new ListviewVocab();
 
-        voca1.SetVocab("Word1");
-        voca1.SetPronounce("/phonetic/");
-        voca1.SetMean("The meaning of this word");
-        voca1.SetExample("Eample sentence of this word.");
 
-        vocablist.add(voca1);
-
-        voca1 = new ListviewVocab();
         voca1.SetVocab("Rakonto");
         voca1.SetPronounce("/ra:kunto/");
         voca1.SetMean("Story and tales");
         voca1.SetExample("Malfelica Rakonto.");
 
         vocablist.add(voca1);
+
+        for(int i = 0 ; i < 10 ; i++) {
+
+            voca1 = new ListviewVocab();
+            voca1.SetVocab("Word" + i);
+            voca1.SetPronounce("/phonetic/");
+            voca1.SetMean("The meaning of this word");
+            voca1.SetExample("Eample sentence of this word.");
+
+
+            vocablist.add(voca1);
+        }
+
 
         return vocablist;
 

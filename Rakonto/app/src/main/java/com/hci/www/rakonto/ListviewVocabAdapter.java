@@ -37,14 +37,12 @@ public class ListviewVocabAdapter extends ArrayAdapter<VocabularyFragment.Listvi
         View row = inflater.inflate(R.layout.layout_vocab, parent, false);
 
         TextView row_first = (TextView) row.findViewById(R.id.Vocabulary);
-        TextView row_second = (TextView) row.findViewById(R.id.Pronounciation);
         TextView row_third = (TextView) row.findViewById(R.id.Meaning);
-        TextView row_fourth = (TextView) row.findViewById(R.id.Example);
 
-        row_first.setText(item.get(position).GetVocab());
-        row_second.setText(item.get(position).GetPronounce());
+        String line1 = item.get(position).GetVocab();
+
+        row_first.setText(line1);
         row_third.setText(item.get(position).GetMean());
-        row_fourth.setText(item.get(position).GetExample());
 
         return row;
     }

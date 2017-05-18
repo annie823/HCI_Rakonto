@@ -2,32 +2,38 @@ package com.hci.www.rakonto;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
 
-public class BookFragment extends Fragment {
+import java.util.ArrayList;
+
+public class BookFragment extends Fragment implements  ViewPager.OnPageChangeListener{
     View rootView;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private ArrayList<Fragment> fragments;
+    private ActionTabsViewPagerAdapter myViewPageAdapter;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_book, container, false);
 
-        Button btnToRead = (Button) rootView.findViewById(R.id.toRead);
-        btnToRead.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toReadClick();
-            }
-        });
+//        Button btnToRead = (Button) rootView.findViewById(R.id.toRead);
+//        btnToRead.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                toReadClick();
+//            }
+//        });
 
         FragmentManager fm = getFragmentManager();
         fm.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
@@ -37,12 +43,29 @@ public class BookFragment extends Fragment {
             }
         });
 
+        tabLayout = (TabLayout) rootView.findViewById(R.id.subtab);
+        viewPager = (ViewPager) rootView.findViewById(R.id.subviewpager);
+
+        fragments = new ArrayList<Fragment>();
+        fragments.add(new SynopsisChildFragment());
+        fragments.add(new ReviewListChildFragment());
+        fragments.add(new SynopsisChildFragment());
+
+        myViewPageAdapter = new ActionTabsViewPagerAdapter(getChildFragmentManager(),fragments);
+        viewPager.setAdapter(myViewPageAdapter);
+
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+
+
         return rootView;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     public void toReadClick() {
@@ -77,4 +100,18 @@ public class BookFragment extends Fragment {
 //        ft.commit();
     }
 
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
 }

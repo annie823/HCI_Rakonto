@@ -11,12 +11,6 @@
     android:padding="10dp"
     android:textSize="26sp" />
 
-    <TextView android:id="@+id/Pronounciation"
-        android:textStyle="italic|bold"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textSize="16sp" />
 
     <TextView android:id="@+id/Meaning"
         android:layout_width="fill_parent"
@@ -24,10 +18,4 @@
         android:padding="10dp"
         android:textSize="16sp" />
 
-    <TextView android:id="@+id/Example"
-        android:textStyle="italic"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textSize="16sp" />
 </LinearLayout>
