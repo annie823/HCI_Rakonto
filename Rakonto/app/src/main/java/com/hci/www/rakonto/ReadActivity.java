@@ -1,9 +1,10 @@
 package com.hci.www.rakonto;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ReadActivity extends AppCompatActivity {
+public class ReadActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
