@@ -64,13 +64,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/discover_new_bestsellers"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="@string/discover_genre"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -79,7 +72,59 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="24sp"
-                ></HorizontalScrollView>
+                android:id="@+id/genre_scroll"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="32sp"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/genre_0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bookcover1"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/genre_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bookcover1"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/genre_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bookcover1"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/genre_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bookcover1"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/genre_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bookcover1"
+                        />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/discover_new_bestsellers"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <it.moondroid.coverflow.components.ui.containers.FeatureCoverFlow
                 android:id="@+id/coverflow_bestseller"
